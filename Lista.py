@@ -32,12 +32,13 @@ class ListaDoble:
             actual.next = nuevo_nodo
             nuevo_nodo.prev = actual
 
-    def mostrar(self):
+    def mostrar(self,respuesta):
         i=0
         if self.head is None:
             print("La lista está vacía")
         else:
             actual = self.head
+            print(f"    ->Top 10 del : {respuesta}")
             while actual is not None:
                 if (i<10):
                     print(f"---------------------- {i+1}")
@@ -139,19 +140,8 @@ class Lista:
                 MarginLevel2 = ((float(actual.LastTotalUnitCost))/(float(actual.PriceLevel2)))*100
                 MarginLevel3 = ((float(actual.LastTotalUnitCost))/(float(actual.PriceLevel3)))*100
                 ValorInventario = (float(actual.LastTotalUnitCost))*(float(actual.QuantityOnHand))
-                #print(f"    ->ItemCode: ",str(actual.ItemCode))
-                #print(f"    ->QuantityOnHand: ",str(actual.QuantityOnHand))
-                #print(f"    ->PriceLevel1: ", str(actual.PriceLevel1))
-                #print(f"    ->PriceLevel2: ",str(actual.PriceLevel2))
-                #print(f"    ->PriceLevel3: ",str(actual.PriceLevel3))
-                #print(f"    ->LastTotalUnitCost: ", str(actual.LastTotalUnitCost))
-                #print(f"    ->MarginLevel1: ", str(MarginLevel1))
-                #print(f"    ->MarginLevel2: ", str(MarginLevel2))
-                #print(f"    ->MarginLevel3: ", str(MarginLevel3))
-                #print(f"    ->ValorInventario: ", str(ValorInventario))
-                #print("      -------------------------------") 
                 Lista.agregar(Datos(str(actual.ItemCode),str(actual.QuantityOnHand),str(actual.PriceLevel1), str(actual.PriceLevel2),str(actual.PriceLevel3),str(actual.LastTotalUnitCost) ,str(MarginLevel1),str(MarginLevel2),str(MarginLevel3),str(ValorInventario)))
                 actual = actual.siguiente
             if ((respuesta == "MarginLevel1")or(respuesta == "MarginLevel2")or(respuesta == "MarginLevel3")or(respuesta == "ValorInventario")):
                 Lista.ordenar_burbuja(respuesta)
-                Lista.mostrar()    
+                Lista.mostrar(respuesta)    
